@@ -10,4 +10,5 @@ RUN mkdir -p "$APPDIR/bin" "$APPDIR/etc"
 COPY testfile.sh "$APPDIR/bin"
 WORKDIR $APPDIR
 
-CMD "/tmp/testfile.sh"
+EXPOSE 80 443
+#CMD "/tmp/testfile.sh"
