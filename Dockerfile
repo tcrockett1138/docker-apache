@@ -1,5 +1,5 @@
 FROM debian
-MAINTAINER Tim Crockett <tim.crockett@gmail.com>
+MAINTAINER Tim Crockett
 
 RUN apt-get update && apt-get install -y \
         apache2 \
@@ -7,8 +7,8 @@ RUN apt-get update && apt-get install -y \
 
 ENV APPDIR myapp
 RUN mkdir -p "$APPDIR/bin" "$APPDIR/etc"
-COPY testfile.sh "$APPDIR/bin"
+COPY *.sh "$APPDIR/bin/"
 WORKDIR $APPDIR
 
 EXPOSE 80 443
-#CMD "/tmp/testfile.sh"
+CMD "/$APPDIR/bin/startApache.sh"
